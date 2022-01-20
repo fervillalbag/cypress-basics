@@ -53,5 +53,11 @@ describe("Basic test", () => {
 
     cy.go("back");
     cy.contains("Start Learning").should("exist");
+    cy.log("Finished and current page is", cy.url()); // Not found
+    cy.url().then((value) => {
+      cy.log("The current page is", value);
+    });
+
+    // console.log() mostrará en la consola del navegador y no de la UI
   });
 });
