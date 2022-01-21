@@ -1,6 +1,10 @@
 /// <reference types="cypress" />
 
 describe("Basic test", () => {
+  beforeEach(() => {
+    cy.visit("https://vercel.app/");
+  });
+
   it("We have correctly title", () => {
     cy.visit("https://nextjs.org/");
 
@@ -45,7 +49,7 @@ describe("Basic test", () => {
     cy.contains("The Web SDK").should("exist");
   });
 
-  it.only("Verifying link url", () => {
+  it("Verifying link url", () => {
     cy.visit("https://nextjs.org/");
 
     cy.contains("Documentation").click();
@@ -59,5 +63,30 @@ describe("Basic test", () => {
     });
 
     // console.log() mostrará en la consola del navegador y no de la UI
+  });
+
+  it.only("Login", () => {
+    cy.get("[href='/login']").click();
+    cy.contains("Continue with Email").click();
+
+    // ... Ingresando un correo no válido, podemos validar analizando
+    // ... si envía un mensaje con el texto de error
+
+    // cy.get("[placeholder='Email Address']").type("21fervillalbag");
+    // cy.get("button[type='submit']").click();
+    // cy.contains("Email not found").should("exist");
+
+    /*
+      Para este caso se recomienda tener en it's diferentes
+      it("Login works wrong", () => {...})
+      it("Login works fine", () => {...})
+    */
+
+    // Ingresando un correo válido
+    cy.get("[placeholder='Email Address']").type(
+      "21fervillalbag@gmail.com"
+    );
+    cy.get("button[type='submit']").click();
+    cy.contains("Awaiting Confirmation").should("exist");
   });
 });
