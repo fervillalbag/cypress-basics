@@ -1,6 +1,12 @@
 /// <reference types="cypress" />
 
 describe("Basic test", () => {
+  before(() => {
+    cy.then(() => {
+      window.localStorage.setItem("__auth__token", "");
+    });
+  });
+
   beforeEach(() => {
     cy.visit("https://vercel.app/");
   });
