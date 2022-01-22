@@ -19,9 +19,16 @@ describe("Basic test", () => {
     // cy.contains("Documentation").click();
 
     // ... cy.get()
+    // get se encarga de traer TODAS las coincidencias con los parámetros requeridos
     cy.get("div[id=__next]");
     cy.get("div#__notnext").should("not.exist");
     cy.get("[role=region]");
+    // cy.get(".button__submit");
+    // cy.get("[className='button__submit button__submit--error']");
+    // cy.get("[type='submit']");
+    // cy.get("button.button__submit[type='submit']");
+
+    // cy.getByTestId("btn-1");
   });
 
   it("We have correctly button text", () => {
