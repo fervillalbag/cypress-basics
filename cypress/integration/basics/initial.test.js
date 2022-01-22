@@ -95,4 +95,26 @@ describe("Basic test", () => {
     cy.get("button[type='submit']").click();
     cy.contains("Awaiting Confirmation").should("exist");
   });
+
+  it("Should load feature correctly", () => {
+    cy.visit("https://codepen.io");
+
+    cy.log("Checking for the sidebar");
+    cy.contains("Trying to connect").should("exist");
+
+    cy.log("Checking for the button");
+    cy.get("[data-testid='xterm-controls'] > div").should(
+      "contain.text",
+      "Connecting"
+    );
+
+    // ... using javascript code
+    // const fileName = Math.random().toString().slice(0, 3);
+
+    // ... using mouse and keyboard action
+    // cy.get("[data-testid=xterm").type("{ctrl}{c}");
+    // cy.get("[data-testid=xterm").rightclick()
+
+    // cy.debug();
+  });
 });
