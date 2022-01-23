@@ -15,8 +15,18 @@ describe("Basic test", () => {
     cy.visit("https://nextjs.org/");
 
     // ... cy.contains()
+    // en caso de que exista más de una coincidencia siempre
+    // obtendrá el primer elemento que cumpla con la condición
     cy.contains("Start Learning").should("exist");
     // cy.contains("Documentation").click();
+    // cy.contains("[type='submit']", "Enviar");
+
+    // también funciona con selectores heredados > +
+    // cy.contains("form", "Enviar");
+
+    // ... find()
+    // se recomienda usar de la siguiente forma
+    cy.get(".article").find("footer");
 
     // ... cy.get()
     // get se encarga de traer TODAS las coincidencias con los parámetros requeridos
