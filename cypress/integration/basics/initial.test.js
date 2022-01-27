@@ -20,6 +20,7 @@ describe("Basic test", () => {
     cy.contains("Start Learning").should("exist");
     // cy.contains("Documentation").click();
     // cy.contains("[type='submit']", "Enviar");
+    // cy.contains("h2", "Title of page");
 
     // también funciona con selectores heredados > +
     // cy.contains("form", "Enviar");
@@ -33,6 +34,7 @@ describe("Basic test", () => {
     cy.get("div[id=__next]");
     cy.get("div#__notnext").should("not.exist");
     cy.get("[role=region]");
+    // cy.get("form").get("input").type("New todo");
     // cy.get(".button__submit");
     // cy.get("[className='button__submit button__submit--error']");
     // cy.get("[type='submit']");
